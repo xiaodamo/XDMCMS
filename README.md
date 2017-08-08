@@ -28,3 +28,4 @@
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/4.png)
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/5.png)
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/6.png)
+
