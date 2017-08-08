@@ -1,0 +1,35 @@
+a { TEXT-DECORATION: none; color:#000000}
+a:hover{ text-decoration: underline;}
+body {font-family:Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #F7F7F7;}
+
+#messagebox {
+    margin-top: 150px;
+    padding: 1px;
+    width: 500px;
+    border: solid 1px #739ACE;
+    background: #faf8ed;
+}
+#messagebox-title {
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    background-color: #739ACE;
+    padding: 5px;
+}
+#messagebox-content {
+    color: #227fb7;
+    background-color: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+    text-align: left;
+    font-size:14px;
+}
+#messagebox-bottom {
+    color: #fff;
+    background-color: #CED4E8;
+    padding: 3px;
+    text-align: center;
+}
+
+.x-border-layout-ct { background:transparent;}
+body.x-border-layout-ct {background:#c3d5ed;}
