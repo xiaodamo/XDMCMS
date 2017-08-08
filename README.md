@@ -20,3 +20,11 @@
 将xiaodamo.sql导入你的数据库
 
 后台默认账户：admin，密码：111111
+
+# 截图
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/1.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/2.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/3.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/4.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/5.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/6.png)
