@@ -30,13 +30,13 @@
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/6.png)
 
 # 项目说明
--项目目录说明
+- 项目目录说明
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm1.png)
--后台Controller基类说明
+- 后台Controller基类说明
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm2.png)
--后台Controller子类说明
+- 后台Controller子类说明
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm3.png)
--后台子类model说明（基类model使用的是github的另一个项目，详细使用方法请查看https://github.com/jamierumbelow/codeigniter-base-model）
+- 后台子类model说明（基类model使用的是github的另一个项目，详细使用方法请查看https://github.com/jamierumbelow/codeigniter-base-model）
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm4.png)
--后台相关配置文件说明
+- 后台相关配置文件说明
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm5.png)
