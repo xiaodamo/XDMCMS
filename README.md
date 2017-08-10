@@ -40,3 +40,15 @@
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm4.png)
 - 后台相关配置文件说明
 ![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm5.png)
+
+# 代码生成说明
+- 从配置文件生成的说明
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm6.png)
+- 配置文件定义说明
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm7.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm8.png)
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm9.png)
+- 手动添加字段生成的说明
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm10.png)
+- 生成后的页面说明（根据代码生成的页面是不是很方便呢 *^__^* ）
+![image](https://github.com/xiaodamo/XDMCMS/raw/master/uploads/screenshots/sm11.png)

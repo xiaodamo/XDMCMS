@@ -90,116 +90,116 @@ $config['table']['article1'] = array (
         ),
       ),
     ),
-    'img_url' => 
+    'img_url' =>
     array (
       'type' => 'VARCHAR',
       'constraint' => '255',
       'default' => '',
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'image',
           'title' => '缩略图',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
         ),
       ),
     ),
-    'author' => 
+    'author' =>
     array (
       'type' => 'VARCHAR',
       'constraint' => '64',
       'default' => '',
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'text',
           'title' => '作者',
           'default' => 'xiaodamo',
           'placeholder' => '',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => false,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|required',
         ),
       ),
     ),
-    'sort_order' => 
+    'sort_order' =>
     array (
       'type' => 'INT',
       'constraint' => 11,
       'default' => 0,
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'number',
           'title' => '排序',
           'default' => '0',
           'placeholder' => '',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|integer',
         ),
       ),
     ),
-    'click_nums' => 
+    'click_nums' =>
     array (
       'type' => 'INT',
       'constraint' => 11,
       'default' => 0,
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'number',
           'title' => '点击量',
           'default' => '0',
           'placeholder' => '',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|integer',
         ),
       ),
     ),
-    'is_recommand' => 
+    'is_recommand' =>
     array (
       'type' => 'TINYINT',
       'constraint' => 1,
       'default' => 0,
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'radio',
-          'option' => 
+          'option' =>
           array (
             1 => '是',
             0 => '否',
@@ -207,30 +207,30 @@ $config['table']['article1'] = array (
           'title' => '是否推荐',
           'default' => '0',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
           'toolbar' => 'fa-thumbs-o-up|推荐/不推荐',
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|integer',
         ),
       ),
     ),
-    'status' => 
+    'status' =>
     array (
       'type' => 'TINYINT',
       'constraint' => 1,
       'default' => 0,
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'radio',
-          'option' => 
+          'option' =>
           array (
             1 => '未审核',
             2 => '审核通过',
@@ -239,86 +239,86 @@ $config['table']['article1'] = array (
           'title' => '审核状态',
           'default' => '2',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
-          'toolbar' => 
+          'toolbar' =>
           array (
             2 => 'fa-check|审核通过',
             3 => 'fa-close|审核不通过',
           ),
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|integer',
         ),
       ),
     ),
-    'content' => 
+    'content' =>
     array (
       'type' => 'TEXT',
       'null' => true,
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'ueditor',
           'title' => '内容',
           'default' => '',
           'placeholder' => '请输入内容',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => false,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
           'rule' => 'trim|required',
         ),
       ),
     ),
-    'created_at' => 
+    'created_at' =>
     array (
       'type' => 'DATETIME',
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'datetime',
           'title' => '创建时间',
           'default' => '',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => true,
         ),
       ),
     ),
-    'updated_at' => 
+    'updated_at' =>
     array (
       'type' => 'DATETIME',
-      'comment' => 
+      'comment' =>
       array (
-        'obj' => 
+        'obj' =>
         array (
           'type' => 'datetime',
           'title' => '创建时间',
           'default' => '',
         ),
-        'list' => 
+        'list' =>
         array (
           'display' => true,
           'sortable' => true,
         ),
-        'add' => 
+        'add' =>
         array (
           'display' => false,
         ),

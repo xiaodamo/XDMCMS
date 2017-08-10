@@ -35,6 +35,11 @@ class Maketable{
                  $this->_primary_key[] = $k;
              }
 
+             if(in_array(strtolower($v['type']),array('text','date','datetime'))){
+                 unset($fields[$k]['constraint']);
+                 unset($fields[$k]['default']);
+             }
+
              if(isset($v['comment'])){
                  $fields[$k]['comment'] = json_encode($v['comment'],TRUE);
              }
