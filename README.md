@@ -13,7 +13,7 @@
 
 # 安装与配置
 
-修改/admin/application/config/database.php 修改你的数据库信息
+修改admin/application/config/database.php 修改你的数据库信息
 
 修改application/config/database.php 修改你的数据库信息
 
