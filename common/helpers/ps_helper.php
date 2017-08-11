@@ -583,7 +583,8 @@ function build_attr_button($arrt_type,$attr_id,$default_value="",$option_values=
                         endforeach;
              break;
          case 'singlecheck':
-             $html .= '<input class="easyui-validatebox"  name="'.$attr_id.'" data-options="'.$rule.'" type="checkbox" value="1" >';
+             $checked = $default_value==1?'checked="checked"':'';
+             $html .= '<input class="easyui-validatebox"  name="'.$attr_id.'" data-options="'.$rule.'" type="checkbox" value="1" '.$checked.'>';
              break;
 
          case   'select': $html .= '<select name="'.$attr_id.'"        
@@ -596,11 +597,11 @@ function build_attr_button($arrt_type,$attr_id,$default_value="",$option_values=
              $html .='</select>'; break;
          case  'image':
              $default_value = $default_value?UPLOADS.$default_value:ASSETS.'Content/Images/nopic.gif';
-             $html = '<div id="localImag">
-                        <img class="icon" id="preview" src="'.$default_value.'" style="display: block; width: 140px; height: 140px;" />
+             $html = '<div id="localImag_'.$attr_id.'">
+                        <img class="icon" id="preview_'.$attr_id.'" src="'.$default_value.'" style="display: block; width: 140px; height: 140px;" />
                        </div><br />
-                       <a href="javascript:$(\'#FileUpload\').trigger(\'click\');void(0);" class="files"></a>
-                       <input type="file" class="displaynone" id="FileUpload" name="'.$attr_id.'" onchange="setImagePreview();" />
+                       <a href="javascript:$(\'#FileUpload_'.$attr_id.'\').trigger(\'click\');void(0);" class="files"></a>
+                       <input type="file" class="displaynone" id="FileUpload_'.$attr_id.'" name="'.$attr_id.'" onchange="setImagePreview(\''.$attr_id.'\');" />
                        <span class="uploading">请稍候...</span>';
              break;
          case 'mult_image':

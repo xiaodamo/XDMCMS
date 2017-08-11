@@ -114,11 +114,11 @@
                                 <input name="sex" <?php if($editing['sex']=='女') echo 'checked="checked"';?> type="radio" value="女" />女
                             </td>
                             <td rowspan="6" style=" border-left:dashed 1px #ccc; padding-left:30px">
-                                <div id="localImag">
-                                <img class="icon" id="preview" src="<?php if($editing['icon']) echo UPLOADS.$editing['icon'];else echo ASSETS.'Content/Images/NotPic.jpg';?>" style="display: block; width: 140px; height: 140px;" />
+                                <div id="localImag_1">
+                                <img class="icon" id="preview_1" src="<?php if($editing['icon']) echo UPLOADS.$editing['icon'];else echo ASSETS.'Content/Images/NotPic.jpg';?>" style="display: block; width: 140px; height: 140px;" />
                                 </div><br />
-                                <a href="javascript:$('#FileUpload').trigger('click');void(0);" class="files"></a>
-                                <input type="file" class="displaynone" id="FileUpload" name="icon" onchange="setImagePreview();" />
+                                <a href="javascript:$('#FileUpload_1').trigger('click');void(0);" class="files"></a>
+                                <input type="file" class="displaynone" id="FileUpload_1" name="icon" onchange="setImagePreview(1);" />
                                 <span class="uploading">请稍候...</span>
                             </td>
                         </tr>
