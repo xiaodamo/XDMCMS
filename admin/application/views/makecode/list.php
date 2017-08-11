@@ -52,6 +52,10 @@
 
             $("#btnSave2").click(function () {
                 if ($("#autoForm").form('validate')) {
+                    $(".fieldform").find("input[type='checkbox']").each(function (index) {
+                        var id = $(this).parents(".fieldform").find("input[name='field_enname[]']").val();
+                        $(this).val(id);
+                    });
                     $.ajax({
                         url: "/admin/make_code/save_fromauto",
                         type: "post",
@@ -65,6 +69,7 @@
                             }
                         }
                     });
+
                 }else{
                     $.messageBox3s('提示', "表单数据验证有误，请修改");
                     return false;
@@ -112,6 +117,7 @@
                 field_txt += '<option value="ueditor">ueditor</option>';
                 field_txt += '<option value="radio">radio</option>';
                 field_txt += '<option value="checkbox">checkbox</option>';
+                field_txt += '<option value="singlecheck">singlecheck</option>';
                 field_txt += '<option value="select">select</option>';
                 field_txt += '<option value="image">image</option>';
                 field_txt += '<option value="mult_image">mult_image</option>';

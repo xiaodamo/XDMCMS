@@ -582,6 +582,9 @@ function build_attr_button($arrt_type,$attr_id,$default_value="",$option_values=
                  '<input class="easyui-validatebox"  name="'.$attr_id.'" data-options="'.$rule.'" type="checkbox" value="'.$key.'" checked="checked" >'.$value;
                         endforeach;
              break;
+         case 'singlecheck':
+             $html .= '<input class="easyui-validatebox"  name="'.$attr_id.'" data-options="'.$rule.'" type="checkbox" value="1" >';
+             break;
 
          case   'select': $html .= '<select name="'.$attr_id.'"        
 		                  class="easyui-validatebox" data-options="'.$rule.'"><option value="">请选择...</option>';

@@ -38,6 +38,7 @@ class Make_code extends CI_Controller
         'ueditor',
         'radio',
         'checkbox',
+        'singlecheck',
         'select',
         'image',
         'mult_image',
@@ -195,10 +196,10 @@ class Make_code extends CI_Controller
                     'constraint' => $field_size[$k],
                     'default' => $field_default[$k],
                 );
-                if(intval($is_unsign[$k])){
+                if(in_array($v,$is_unsign)){
                     $fields[$v]['unsigned'] = TRUE;
                 }
-                if(intval($is_pri[$k])){
+                if(in_array($v,$is_pri)){
                     $fields[$v]['auto_increment'] = TRUE;
                     $fields[$v]['primary_key'] = TRUE;
                     unset($fields[$v]['default']);
@@ -211,8 +212,8 @@ class Make_code extends CI_Controller
                     ),
                     'list'=>array(
                         'display'=>intval($list_display[$k])===1?TRUE:(intval($list_display[$k])===-1?'hidden':FALSE),
-                        'search'=>intval($is_search[$k])===1?TRUE:FALSE,
-                        'sortable'=>intval($is_order[$k])===1?TRUE:FALSE,
+                        'search'=>in_array($v,$is_search),
+                        'sortable'=>in_array($v,$is_order),
                         'toolbar'=>$field_tools[$k],
                     ),
                     'add'=>array(
@@ -223,12 +224,11 @@ class Make_code extends CI_Controller
                     $option = explode('|',$field_option[$k]);
                     foreach ($option as $ok=>$ov){
                         $temp_op = explode(':',$ov);
-                        $fields[$v]['comment']['option'][$temp_op[0]] = $temp_op[1];
+                        $fields[$v]['comment']['obj']['option'][$temp_op[0]] = $temp_op[1];
                     }
                 }
             }
             $content['fields'] = $fields;
-//            var_dump($content);exit;
             $data = $this->_make_module($cname,$content);
             ajaxReturn($data);
         }else{
