@@ -21,6 +21,6 @@ $config['public_roles'] = array(
     'welcome' => array(),
     'script' => array(),
     'region_change' => array(),
-    'fileupload' => array(),
+    'imageupload' => array(),
     'admin_user' => array('profile','change_mypassword'),
 );

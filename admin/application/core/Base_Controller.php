@@ -8,7 +8,7 @@ class Base_Controller extends CI_Controller
     protected $my_model;
     protected $fields;
     protected $combtn = array(true,true,true,true);//$add , $edit , $delete , $refresh
-    protected $per_page = 20;
+    protected $per_page = 15;
     protected $condition;
     protected $self_view;
     protected $call_func_index;
@@ -212,7 +212,7 @@ class Base_Controller extends CI_Controller
         if ($id){
             //文件上传情况
             if($_FILES){
-                $this->load->library('my_upload');
+                $this->load->library('my_Upload');
                 $upload_obj = new My_Upload();
                 foreach ($_FILES as $fk=>$fv){
                     $upload_obj->_field = $fk;
@@ -239,7 +239,7 @@ class Base_Controller extends CI_Controller
             if($res){
                 //文件上传情况
                 if($_FILES){
-                    $this->load->library('my_upload');
+                    $this->load->library('my_Upload');
                     $upload_obj = new My_Upload();
                     foreach ($_FILES as $fk=>$fv){
                         $upload_obj->_field = $fk;
