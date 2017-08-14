@@ -552,7 +552,7 @@ function build_attr_button($arrt_type,$attr_id,$default_value="",$option_values=
              $html = '<input style="width:200px;height:28px;" class="easyui-combotree" name="'.$attr_id.'" data-options="url:\''.current($option_values).'\','.$rule.'" value="'.$default_value.'" >';
              break;
 
-         case 'textarea': $html = '<textarea rows="4" cols="80" class="easyui-validatebox" name="'.$attr_id.'" data-options="'.$rule.'">'.$default_value.'</textarea>';
+         case 'textarea': $html = '<textarea rows="4" cols="80" class="easyui-validatebox" name="'.$attr_id.'" data-options="'.$rule.'">'.$default_value.'</textarea><br />';
              break;
 
          case 'ueditor':
@@ -612,8 +612,7 @@ function build_attr_button($arrt_type,$attr_id,$default_value="",$option_values=
 
                         <div id="preview_img">';
                             if(!empty($default_value)){
-                                $imgs=explode(",",$default_value);
-                                foreach ($imgs as $img){
+                                foreach ($default_value as $img){
                                     $html.='<img  src="'.UPLOADS.$img.'" style="width:150px;height:150px" />';
                                 }
                             }
