@@ -11,6 +11,8 @@ class My_Upload{
 
     public $_id;
 
+    public $_filename = '';
+
     public $_type = 'gif|jpg|png|bmp|jpeg';
 
     public $_size = '10000';
@@ -33,8 +35,13 @@ class My_Upload{
             mkdirsByPath($path);
 
             // CI文件上传类 数据初始化
-            $config['file_name']  = getMillisecond();
+            if(!$this->_filename){
+                $config['file_name']  = getMillisecond();
+            }else{
+                $config['file_name'] = $this->_filename;
+            }
             $config['upload_path']  = $path ;
+            $config['overwrite']  = TRUE ;
             $config['allowed_types'] = $this->_type;
             $config['max_size'] = $this->_size;
             $config['max_filename'] = '50';
@@ -48,7 +55,7 @@ class My_Upload{
             $uploaded = $this->__CI->upload->data();
             $file_url = $save_path.$uploaded['file_name'];
 
-            if($this->_del_old){
+            if($this->_del_old && !$this->_filename){
                 //删除原文件
                 $this->__CI->load->model($this->_module.'_model');
                 $model = $this->_module.'_model';

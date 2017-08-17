@@ -212,7 +212,7 @@ class Base_Controller extends CI_Controller
         if ($id){
             //文件上传情况
             if($_FILES){
-                $this->load->library('my_Upload');
+                $this->load->library('my_upload');
                 $upload_obj = new My_Upload();
                 foreach ($_FILES as $fk=>$fv){
                     $upload_obj->_field = $fk;
@@ -235,11 +235,14 @@ class Base_Controller extends CI_Controller
 
         // 添加
         } else {
+            if(!$data && $_FILES){
+                $data = array(key($_FILES)=>'');
+            }
             $res = $this->$model->insert($data);
             if($res){
                 //文件上传情况
                 if($_FILES){
-                    $this->load->library('my_Upload');
+                    $this->load->library('my_upload');
                     $upload_obj = new My_Upload();
                     foreach ($_FILES as $fk=>$fv){
                         $upload_obj->_field = $fk;
