@@ -13,6 +13,8 @@ class My_Upload{
 
     public $_filename = '';
 
+    public $_overwrite = FALSE;
+
     public $_type = 'gif|jpg|png|bmp|jpeg';
 
     public $_size = '10000';
@@ -41,7 +43,7 @@ class My_Upload{
                 $config['file_name'] = $this->_filename;
             }
             $config['upload_path']  = $path ;
-            $config['overwrite']  = TRUE ;
+            $config['overwrite']  = $this->_overwrite ;
             $config['allowed_types'] = $this->_type;
             $config['max_size'] = $this->_size;
             $config['max_filename'] = '50';
