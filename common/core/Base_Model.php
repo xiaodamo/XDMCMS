@@ -975,6 +975,6 @@ class Base_Model extends CI_Model
     {
         if(!$sql) return null;
         $sql = str_replace('__',$this->_database->dbprefix,$sql);
-        return $this->_database->simple_query($sql,$array);
+        return $this->_database->query($sql,$array);
     }
 }
