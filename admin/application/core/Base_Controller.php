@@ -66,7 +66,7 @@ class Base_Controller extends CI_Controller
         if (is_post()) {
             ajaxReturn($data);
         }else{
-            $action = explode('_',$this->my_model)[0];
+            $action = substr($this->my_model, 0, strrpos($this->my_model, '_'));
             if(!$this->fields){
                 $this->load->library('maketable');
                 $table_obj = new Maketable($action);
@@ -114,7 +114,7 @@ class Base_Controller extends CI_Controller
     function edit()
     {
         $params = $this->uri->uri_to_assoc(3);
-        $action = explode('_',$this->my_model)[0];
+        $action = substr($this->my_model, 0, strrpos($this->my_model, '_'));
         if(!$this->fields){
             $this->load->library('maketable');
             $table_obj = new Maketable($action);
@@ -164,7 +164,7 @@ class Base_Controller extends CI_Controller
      */
     function save()
     {
-        $action = explode('_',$this->my_model)[0];
+        $action = substr($this->my_model, 0, strrpos($this->my_model, '_'));
 
         if(!$this->fields){
             $this->load->library('maketable');
