@@ -39,14 +39,30 @@
                     });
 
                     //模块权限表格
-
+                    var ismycheck = false;
                     $('#rightList').treegrid({
-                        onLoadSuccess: function (data) {
+                        onLoadSuccess: function (row, data) {
                             var checkednode = "<?php echo $editing['auth_ids']?>";
                             var checkedarr = checkednode==""?[]:checkednode.split(',');
                             if(checkedarr){
                                 for(var n in checkedarr){
                                     $('#rightList').treegrid('checkNode',checkedarr[n]);
+                                }
+                            }
+                            ismycheck = true;
+                        },
+                        onCheckNode:function(row,checked){
+                            if(!ismycheck) return;
+                            var id = row.id;
+                            var childarr = $('#rightList').treegrid('getChildren',id);
+//                            console.log(childarr);return;
+                            if(childarr){
+                                for(var n in childarr){
+                                    if(checked){
+                                        $('#rightList').treegrid('checkNode',childarr[n].id);
+                                    }else{
+                                        $('#rightList').treegrid('uncheckNode',childarr[n].id);
+                                    }
                                 }
                             }
                         },
@@ -59,7 +75,7 @@
                         rownumbers: true,
                         showFooter: true,
                         checkbox: true,
-                        cascadeCheck:true,
+                        cascadeCheck:false,
                         columns: [[
                             { field: 'id', title: 'ID', width: 80, hidden: true },
                             { field: 'text', title: '模块名称', width: 80, sortable: false },
@@ -72,6 +88,7 @@
                 function frameReturnByClose() {
                     $("#modalwindow").window('close');
                 }
+
 
             </script>
             <div class="mvctool">
