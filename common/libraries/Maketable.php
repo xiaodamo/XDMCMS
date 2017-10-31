@@ -40,6 +40,10 @@ class Maketable{
                  unset($fields[$k]['default']);
              }
 
+             if(in_array(strtolower($v['type']),array('int','tinyint','smallint','mediumint','bigint')) && $fields[$k]['default']=="" ){
+                 unset($fields[$k]['default']);
+             }
+
              if(isset($v['comment'])){
                  $fields[$k]['comment'] = json_encode($v['comment'],TRUE);
              }

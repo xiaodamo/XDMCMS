@@ -68,7 +68,7 @@
                         },
                         url: '/admin/role/get_auth',
                         methord: 'post',
-                        height: SetGridHeightSub(170),
+                        height: SetGridHeightSub(200),
                         fitColumns: true,
                         idField: 'id',
                         treeField: 'text',
