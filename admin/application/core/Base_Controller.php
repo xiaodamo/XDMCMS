@@ -164,7 +164,7 @@ class Base_Controller extends CI_Controller
      */
     function save()
     {
-        $action = substr($this->my_model, 0, strrpos($this->my_model, '_'));
+        $action = explode('_',$this->my_model)[0];
 
         if(!$this->fields){
             $this->load->library('maketable');
@@ -176,32 +176,61 @@ class Base_Controller extends CI_Controller
         $fields = array_keys($info['info']);
         $id = (int)$this->input->post($info['primary_key']);
         $data = array();
-        foreach ($_POST as $k=>$v){
-            if(!in_array($k,$fields) || $k==$info['primary_key']){
-                continue;
-            }
-            if(!$id && $k==$info['primary_key']){
+//        foreach ($_POST as $k=>$v){
+//            if(!in_array($k,$fields) || $k==$info['primary_key']){
+//                continue;
+//            }
+//            if(!$id && $k==$info['primary_key']){
+//                continue;
+//            }
+//
+//            if(in_array($info['info'][$k]['obj']['type'],array('image','file'))){
+//                if($v) $data[$k] = remove_xss($v);
+//            }
+//            elseif($info['info'][$k]['obj']['type']=='mult_image'){
+//                $data[$k] = implode(",",remove_xss($v));
+//                unset($_FILES[$k]);
+//            }
+//            elseif($info['info'][$k]['obj']['type']=='checkbox'){
+//                $data[$k] = implode(",",remove_xss($v));
+//            }
+//            elseif($info['info'][$k]['obj']['type']=='number'){
+//                $data[$k] = intval($v);
+//            }
+//            elseif($info['info'][$k]['obj']['type']=='ueditor'){
+//                $data[$k] = $v;
+//            }
+//            else{
+//                $data[$k] = remove_xss($v);
+//            }
+//        }
+
+        foreach ($info['info'] as $k=>$v){
+            if($k==$info['primary_key']){
                 continue;
             }
 
-            if(in_array($info['info'][$k]['obj']['type'],array('image','file'))){
-                if($v) $data[$k] = remove_xss($v);
+            if(in_array($v['obj']['type'],array('image','file'))){
+                if($_POST[$k]) $data[$k] = remove_xss($_POST[$k]);
             }
-            elseif($info['info'][$k]['obj']['type']=='mult_image'){
-                $data[$k] = implode(",",remove_xss($v));
+            elseif($v['obj']['type']=='mult_image'){
+                $data[$k] = implode(",",remove_xss($_POST[$k]));
                 unset($_FILES[$k]);
             }
-            elseif($info['info'][$k]['obj']['type']=='checkbox'){
-                $data[$k] = implode(",",remove_xss($v));
+            elseif($v['obj']['type']=='singlecheck'){
+                $data[$k] = intval($_POST[$k]);
             }
-            elseif($info['info'][$k]['obj']['type']=='number'){
-                $data[$k] = intval($v);
+            elseif($v['obj']['type']=='checkbox'){
+                $data[$k] = implode(",",remove_xss($_POST[$k]));
             }
-            elseif($info['info'][$k]['obj']['type']=='ueditor'){
-                $data[$k] = $v;
+            elseif($v['obj']['type']=='number'){
+                $data[$k] = intval($_POST[$k]);
+            }
+            elseif($v['obj']['type']=='ueditor'){
+                $data[$k] = $_POST[$k];
             }
             else{
-                $data[$k] = remove_xss($v);
+                $data[$k] = remove_xss($_POST[$k]);
             }
         }
 
@@ -212,7 +241,7 @@ class Base_Controller extends CI_Controller
         if ($id){
             //文件上传情况
             if($_FILES){
-                $this->load->library('my_upload');
+                $this->load->library('my_Upload');
                 $upload_obj = new My_Upload();
                 foreach ($_FILES as $fk=>$fv){
                     $upload_obj->_field = $fk;
@@ -220,6 +249,10 @@ class Base_Controller extends CI_Controller
                     $upload_obj->_module = $action;
                     $data[$fk] = $upload_obj->do_upload();
                 }
+            }
+
+            if(!isset($data['is_redirect'])){
+                $data['is_redirect'] = 0;
             }
 
             $res = $this->$model->update($id,$data);
@@ -233,16 +266,14 @@ class Base_Controller extends CI_Controller
                 show_message3('操作成功','操作失败',false);
             }
 
-        // 添加
+            // 添加
         } else {
-            if(!$data && $_FILES){
-                $data = array(key($_FILES)=>'');
-            }
+
             $res = $this->$model->insert($data);
             if($res){
                 //文件上传情况
                 if($_FILES){
-                    $this->load->library('my_upload');
+                    $this->load->library('my_Upload');
                     $upload_obj = new My_Upload();
                     foreach ($_FILES as $fk=>$fv){
                         $upload_obj->_field = $fk;
